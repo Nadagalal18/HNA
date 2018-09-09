@@ -1,0 +1,71 @@
+package com.example.nadag.hospital2;
+
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class data_of_new_patient extends AppCompatActivity {
+    Button bt3;
+    EditText firstname,lastname,id,age,phone,email,gender;
+    ProgressDialog progressDialog;
+    myConnection Connection;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_data_of_new_patient);
+        getSupportActionBar().hide();
+        bt3 = (Button) findViewById(R.id.bt3);
+        firstname=(EditText)findViewById(R.id.first);
+        lastname=(EditText)findViewById(R.id.last);
+        id=(EditText)findViewById(R.id.i);
+        phone=(EditText)findViewById(R.id.ph);
+        email=(EditText)findViewById(R.id.e);
+        age=(EditText)findViewById(R.id.ag);
+        gender=(EditText)findViewById(R.id.gend);
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String input1=firstname.getText().toString();
+                String input2=lastname.getText().toString();
+                String input3=id.getText().toString();
+                String input4=age.getText().toString();
+                String input5=phone.getText().toString();
+                String input6=email.getText().toString();
+                String input7=gender.getText().toString();
+               if (input1.isEmpty()&&input2.isEmpty()&&input3.isEmpty()&&input4.isEmpty()&&input5.isEmpty()&&input6.isEmpty()&&input7.isEmpty()) {
+                   Toast.makeText(data_of_new_patient.this, "Please enter your data", Toast.LENGTH_SHORT).show();
+               }
+               else {
+                   int id=Integer.parseInt(input3);
+                   int age =Integer.parseInt(input4);
+                   int phone =Integer.parseInt(input5);
+                   //insert
+                   dialog();
+               }
+            }
+        });
+    }
+     public void dialog (){
+         AlertDialog.Builder dialog=new AlertDialog.Builder(data_of_new_patient.this);
+         dialog.setTitle("hhh");
+         dialog.setMessage("Your data is successfully saved");
+         dialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+             @Override
+             public void onClick(DialogInterface dialogInterface, int i) {
+                 Intent i2 = new Intent(data_of_new_patient.this, MainActivity.class);
+                 startActivity(i2);
+                 finish();
+             }
+         });
+         dialog.show();
+    }
+
+}
