@@ -10,8 +10,8 @@ import java.sql.SQLException;
 public class myConnection extends AsyncTask{
     @Override
     protected Object doInBackground(Object[] objects) {
-        final String connectionURL ="jdbc:mysql://172.28.130.76:3306/hna";
-        final String userName="root";
+        final String connectionURL ="jdbc:mysql://db4free.net:3306/hnahospital";
+        final String userName="hnahospitalusr";
         final String userPassword="123456789";
 
         Connection con = null;
@@ -22,17 +22,19 @@ public class myConnection extends AsyncTask{
             con=DriverManager.getConnection(connectionURL,userName,userPassword);
             Log.d("hna","yeah we did it ");
 
+
         }
+        catch (ClassNotFoundException e) {
+            Log.d("hna","cannot found the class ");
+            Log.d("hna",e.getMessage());
+        }
+
         catch (SQLException e)
         {
             Log.d("hna","failed to connect ");
-            e.printStackTrace();
+            Log.d("hna",e.getMessage());
 
-        } catch (ClassNotFoundException e) {
-            Log.d("hna","cannot found the class ");
-            e.printStackTrace();
         }
-
         return null;
     }
 }
