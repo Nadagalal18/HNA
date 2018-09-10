@@ -7,9 +7,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class myConnection extends AsyncTask{
+public class myConnection extends AsyncTask<Void,Void,Connection>{
+
     @Override
-    protected Object doInBackground(Object[] objects) {
+    protected Connection doInBackground(Void... voids) {
         final String connectionURL ="jdbc:mysql://db4free.net:3306/hnahospital";
         final String userName="hnahospitalusr";
         final String userPassword="123456789";
@@ -35,6 +36,6 @@ public class myConnection extends AsyncTask{
             Log.d("hna",e.getMessage());
 
         }
-        return null;
+        return con;
     }
 }
