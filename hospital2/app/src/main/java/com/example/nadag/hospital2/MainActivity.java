@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.nadag.hospital2.dao.PatientDao;
+import com.example.nadag.hospital2.util.DatabaseManager;
+
 public class MainActivity extends AppCompatActivity {
     Button bt1;
     Button bt2;
@@ -23,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
         bt1=(Button)findViewById(R.id.button1);
         bt2=(Button) findViewById(R.id.button2);
         editText=(EditText)findViewById(R.id.edit1);
-        myConnection con=new myConnection();
-        con.execute();
+        DatabaseManager dbManger=new DatabaseManager();
+        PatientDao dao=new PatientDao();
+        dao.execute(dbManger);
 
        bt1.setOnClickListener(new View.OnClickListener() {
            @Override
