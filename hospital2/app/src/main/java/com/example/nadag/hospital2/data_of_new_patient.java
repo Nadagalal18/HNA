@@ -15,7 +15,6 @@ public class data_of_new_patient extends AppCompatActivity {
     Button bt3;
     EditText firstname,lastname,id,age,phone,email,gender;
     ProgressDialog progressDialog;
-    myConnection Connection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

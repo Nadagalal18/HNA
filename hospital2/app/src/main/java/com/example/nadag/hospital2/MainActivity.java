@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         bt2=(Button) findViewById(R.id.button2);
         editText=(EditText)findViewById(R.id.edit1);
         DatabaseManager dbManger=new DatabaseManager();
-        PatientDao dao=new PatientDao();
-        dao.execute(dbManger);
+        PatientDao dao=new PatientDao(dbManger);
+        dao.execute();
 
        bt1.setOnClickListener(new View.OnClickListener() {
            @Override
