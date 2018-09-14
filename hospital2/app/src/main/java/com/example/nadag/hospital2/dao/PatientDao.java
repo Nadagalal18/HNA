@@ -1,12 +1,8 @@
 package com.example.nadag.hospital2.dao;
 
-
-
 import android.os.AsyncTask;
 
 import android.util.Log;
-
-
 
 import com.example.nadag.hospital2.MainActivity;
 
@@ -14,18 +10,12 @@ import com.example.nadag.hospital2.Patient;
 
 import com.example.nadag.hospital2.util.DatabaseManager;
 
-
-
 import java.sql.SQLException;
 
 import java.util.List;
 
 
-
 public class PatientDao extends AsyncTask<Void, Void, Patient> {
-
-
-
 
 
     final String selectUserById = "SELECT `ID Card`,`First Name`," +
@@ -40,10 +30,6 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
 
     private MainActivity view;
 
-
-
-
-
     public PatientDao(DatabaseManager dbManger, MainActivity view, int id) {
 
         this.dbManger = dbManger;
@@ -53,8 +39,6 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
         this.id = id;
 
     }
-
-
 
     @Override
 
@@ -76,10 +60,6 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
 
                 Log.d("hna", "didn't find this user ");
 
-
-
-
-
             } else {
 
                 return convertToPatient(results.get(0));
@@ -92,17 +72,9 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
 
         }
 
-
-
-
-
         return null;
 
     }
-
-
-
-
 
     @Override
 
@@ -114,11 +86,7 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
 
         //but for now just log
 
-
-
         view.select(user);//after getting the data this will update the UI
-
-
 
     }
 
@@ -141,8 +109,6 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
         user.setPhoneNumber((Integer) row[5]);
 
         user.setGender((String) row[6]);
-
-
 
         return user;
 

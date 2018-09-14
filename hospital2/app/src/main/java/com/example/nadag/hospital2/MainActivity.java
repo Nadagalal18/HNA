@@ -20,8 +20,6 @@ import android.widget.EditText;
 
 import android.widget.Toast;
 
-
-
 import com.example.nadag.hospital2.dao.PatientDao;
 
 import com.example.nadag.hospital2.Patient;
@@ -38,10 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText idEditText;
 
-
-
     DatabaseManager dbManger=new DatabaseManager();
-
     // int id;
 
     @Override
@@ -60,11 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         idEditText =(EditText)findViewById(R.id.edit1);
 
-
-
         dbManger=new DatabaseManager();
-
-
 
       /*  dao.execute();
 
@@ -117,9 +108,6 @@ public class MainActivity extends AppCompatActivity {
                     new PatientDao(dbManger,MainActivity.this,id).execute();
 
 
-
-
-
                 }
 
             }
@@ -144,8 +132,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-
-
     }
 
 
@@ -155,9 +141,6 @@ public class MainActivity extends AppCompatActivity {
         if (user==null)
 
         {
-
-
-
             AlertDialog.Builder dialog=new AlertDialog.Builder(MainActivity.this);
 
             dialog.setTitle("Error");
@@ -172,8 +155,6 @@ public class MainActivity extends AppCompatActivity {
 
         else
 
-
-
         {
 
             Log.d("hna", "the user with id=1 name is "+user.getFirstName());
@@ -181,11 +162,7 @@ public class MainActivity extends AppCompatActivity {
             Intent i=new Intent(this,Deppartments.class);
 
             startActivity(i);
-
             finish();
-
-
-
         }
 
     }
