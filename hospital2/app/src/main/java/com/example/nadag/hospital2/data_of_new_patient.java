@@ -49,7 +49,7 @@ public class data_of_new_patient extends AppCompatActivity {
                else {
                    int id=Integer.parseInt(input3);
                    int age =Integer.parseInt(input4);
-                   int phone =Integer.parseInt(input5);
+                   Integer phone = Integer.parseInt(input5);
                    //insert
                    Out.setAge(age);
                    Out.setEmail(input6);

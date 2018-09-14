@@ -1,42 +1,24 @@
 package com.example.nadag.hospital2;
 
-
-
 import android.content.Intent;
-
-import android.support.v7.app.AlertDialog;
-
-import android.support.v7.app.AppCompatActivity;
-
 import android.os.Bundle;
-
-import android.util.Log;
-
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
 import android.widget.Button;
-
 import android.widget.EditText;
-
 import android.widget.Toast;
 
 import com.example.nadag.hospital2.dao.PatientDao;
-
-import com.example.nadag.hospital2.Patient;
-
 import com.example.nadag.hospital2.util.DatabaseManager;
 
 
-
 public class MainActivity extends AppCompatActivity {
-
     Button loginBtn;
-
     Button regeisterBtn;
-
     EditText idEditText;
 
-    DatabaseManager dbManger=new DatabaseManager();
+    DatabaseManager dbManger = new DatabaseManager();
     // int id;
 
     @Override
@@ -49,13 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        loginBtn =(Button)findViewById(R.id.button1);
+        loginBtn = (Button) findViewById(R.id.button1);
 
-        regeisterBtn =(Button) findViewById(R.id.button2);
+        regeisterBtn = (Button) findViewById(R.id.button2);
 
-        idEditText =(EditText)findViewById(R.id.edit1);
+        idEditText = (EditText) findViewById(R.id.edit1);
 
-        dbManger=new DatabaseManager();
+        dbManger = new DatabaseManager();
 
       /*  dao.execute();
 
@@ -82,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         //  final PatientDao dao1=new PatientDao(dbManger);
 
 
-
         loginBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -97,15 +78,13 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(MainActivity.this, " You didn't enter your id card", Toast.LENGTH_SHORT).show();
 
-                }
-
-                else
+                } else
 
                 {
 
                     int id = Integer.parseInt(input);
 
-                    new PatientDao(dbManger,MainActivity.this,id).execute();
+                    new PatientDao(dbManger, MainActivity.this, id).execute();
 
 
                 }
@@ -115,14 +94,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         regeisterBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
 
             public void onClick(View view) {
 
-                Intent i1=new Intent(MainActivity.this,data_of_new_patient.class);
+                Intent i1 = new Intent(MainActivity.this, data_of_new_patient.class);
 
                 startActivity(i1);
 
@@ -135,31 +113,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //  final PatientDao dao1=new PatientDao(dbManger);
+    public void select(Patient user) {
+        if (user == null) {
 
-    public void select ( Patient user){
-
-        if (user==null)
-
-        {
-            AlertDialog.Builder dialog=new AlertDialog.Builder(MainActivity.this);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
 
             dialog.setTitle("Error");
 
             dialog.setMessage("Your Id card is not valid");
 
-            dialog.setPositiveButton("Try again",null);
+            dialog.setPositiveButton("Try again", null);
 
             dialog.show();
 
-        }
-
-        else
+        } else
 
         {
 
-            Log.d("hna", "the user with id=1 name is "+user.getFirstName());
-
-            Intent i=new Intent(this,Deppartments.class);
+            Intent i = new Intent(this, Deppartments.class);
 
             startActivity(i);
             finish();

@@ -25,39 +25,30 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
             " WHERE `ID Card`=? ";
 
     public int id;
-
     DatabaseManager dbManger;
-
     private MainActivity view;
+
+
 
     public PatientDao(DatabaseManager dbManger, MainActivity view, int id) {
 
         this.dbManger = dbManger;
 
         this.view = view;
-
         this.id = id;
-
     }
 
     @Override
-
     protected Patient doInBackground(Void... voids) {
-
         List<Object[]> results;
 
         dbManger.setQueryString(selectUserById);
 
         // Integer id=1;
-
         dbManger.setParameter(0, id);
-
         try {
-
             results = dbManger.executeQuery();
-
             if (results.isEmpty()) {
-
                 Log.d("hna", "didn't find this user ");
 
             } else {
@@ -76,12 +67,10 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
 
     }
 
+
     @Override
-
     protected void onPostExecute(Patient user) {
-
         super.onPostExecute(user);
-
         //here we will try to update the mainactivity view with the data from this object
 
         //but for now just log
@@ -90,11 +79,9 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
 
     }
 
+    private Patient convertToPatient(Object[] row) {
 
-
-    private Patient convertToPatient(Object[] row){
-
-        Patient user=new Patient();
+        Patient user = new Patient();
 
         user.setIdCard((Integer) row[0]);
 

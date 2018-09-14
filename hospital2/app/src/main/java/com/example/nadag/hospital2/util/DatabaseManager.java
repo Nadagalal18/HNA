@@ -194,6 +194,7 @@ public class DatabaseManager {
 
     public Connection openConnection() {
         if (connection == null) {
+
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 connection = DriverManager.getConnection(connectionURL, userName, userPassword);
@@ -204,6 +205,23 @@ public class DatabaseManager {
             }
 
         }
+        try{
+            if(connection.isClosed()){
+
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    connection = DriverManager.getConnection(connectionURL, userName, userPassword);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return connection;
     }
 
