@@ -82,9 +82,13 @@ public class MainActivity extends AppCompatActivity {
 
                 {
 
-                    int id = Integer.parseInt(input);
+                    try {
+                        int id = Integer.parseInt(input);
+                        new PatientDao(dbManger, MainActivity.this, id).execute();
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(MainActivity.this, "The id should be number", Toast.LENGTH_SHORT).show();
 
-                    new PatientDao(dbManger, MainActivity.this, id).execute();
+                    }
 
 
                 }
