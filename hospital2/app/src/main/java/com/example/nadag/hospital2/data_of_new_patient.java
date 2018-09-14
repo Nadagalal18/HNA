@@ -49,7 +49,7 @@ public class data_of_new_patient extends AppCompatActivity {
                else {
                    int id=Integer.parseInt(input3);
                    int age =Integer.parseInt(input4);
-                   int phone =Integer.parseInt(input5);
+                   String phoneString = input5;
                    //insert
                    Out.setAge(age);
                    Out.setEmail(input6);
@@ -57,7 +57,7 @@ public class data_of_new_patient extends AppCompatActivity {
                    Out.setLastname(input2);
                    Out.setGender(input7);
                    Out.setid(id);
-                   Out.setPhone(phone);
+                   Out.setPhone(phoneString);
                    Out.execute();
                    dialog();
                }
