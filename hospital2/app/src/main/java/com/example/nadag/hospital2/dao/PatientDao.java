@@ -1,62 +1,151 @@
 package com.example.nadag.hospital2.dao;
 
+
+
 import android.os.AsyncTask;
+
 import android.util.Log;
-import android.widget.Toast;
+
+
 
 import com.example.nadag.hospital2.MainActivity;
+
+import com.example.nadag.hospital2.Patient;
+
 import com.example.nadag.hospital2.util.DatabaseManager;
 
+
+
 import java.sql.SQLException;
+
 import java.util.List;
 
-public class PatientDao extends AsyncTask<Void,Void,Object[]>{
 
 
-    DatabaseManager dbManger;
+public class PatientDao extends AsyncTask<Void, Void, Patient> {
+
+
+
+
+
+    final String selectUserById = "SELECT `ID Card`,`First Name`," +
+
+            " `Last Name`, `Email`, `Age`, `Phone Number`, `Gender` FROM `Data`" +
+
+            " WHERE `ID Card`=? ";
+
     public int id;
 
-    public PatientDao(DatabaseManager dbManger) {
+    DatabaseManager dbManger;
+
+    private MainActivity view;
+
+
+
+
+
+    public PatientDao(DatabaseManager dbManger, MainActivity view, int id) {
+
         this.dbManger = dbManger;
+
+        this.view = view;
+
+        this.id = id;
+
     }
 
-    public void setid (int ID){
-        id =ID;
-    }
 
-    final  String selectUserById="SELECT * FROM `test` WHERE id = ?";
 
     @Override
-    protected Object[] doInBackground(Void... voids) {
+
+    protected Patient doInBackground(Void... voids) {
+
         List<Object[]> results;
+
         dbManger.setQueryString(selectUserById);
-       // Integer id=1;
-        dbManger.setParameter(0,id);
+
+        // Integer id=1;
+
+        dbManger.setParameter(0, id);
+
         try {
-            results=dbManger.executeQuery();
-            if(results.isEmpty()){
+
+            results = dbManger.executeQuery();
+
+            if (results.isEmpty()) {
+
                 Log.d("hna", "didn't find this user ");
 
 
-            } else{
-                System.out.println(results.get(0));
-                return results.get(0);
+
+
+
+            } else {
+
+                return convertToPatient(results.get(0));
+
             }
+
         } catch (SQLException e) {
+
             e.printStackTrace();
+
         }
 
 
+
+
+
         return null;
+
     }
+
+
 
 
 
     @Override
-    protected void onPostExecute(Object[] object) {
-        super.onPostExecute(object);
+
+    protected void onPostExecute(Patient user) {
+
+        super.onPostExecute(user);
+
         //here we will try to update the mainactivity view with the data from this object
+
         //but for now just log
-        Log.d("hna", "the user with id=1 name is "+object[1]);
+
+
+
+        view.select(user);//after getting the data this will update the UI
+
+
+
     }
+
+
+
+    private Patient convertToPatient(Object[] row){
+
+        Patient user=new Patient();
+
+        user.setIdCard((Integer) row[0]);
+
+        user.setFirstName((String) row[1]);
+
+        user.setLastName((String) row[2]);
+
+        user.setEmail((String) row[3]);
+
+        user.setAge((Integer) row[4]);
+
+        user.setPhoneNumber((Integer) row[5]);
+
+        user.setGender((String) row[6]);
+
+
+
+        return user;
+
+    }
+
 }

@@ -1,9 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Deppartments">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DEPARTMENTS"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:id="@+id/t"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t"
+        android:id="@+id/bb1"
+        android:text="Physical Therapy"
+        android:textSize="25sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bb1"
+        android:text="Dietary Department"
+        android:id="@+id/bb2"
+        android:textSize="25sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bb2"
+        android:text="Laporatory Department"
+        android:id="@+id/bb3"
+        android:textSize="25sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Radiology Department"
+        android:layout_below="@+id/bb3"
+        android:textSize="25sp"
+        android:id="@+id/bb4"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Orthopedic "
+        android:layout_below="@+id/bb4"
+        android:textSize="25sp"
+        android:id="@+id/bb5"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bb6"
+        android:layout_below="@+id/bb5"
+        android:textSize="25sp"
+        android:text="Dental"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bb7"
+        android:layout_below="@+id/bb6"
+        android:textSize="25sp"
+        android:text="Eye"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bb7"
+        android:textSize="25sp"
+        android:text="Ear,Nose,Throat"
+        android:id="@+id/bb8"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bb8"
+        android:id="@+id/bb9"
+        android:textSize="25sp"
+        android:text="Pediatric"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bb9"
+        android:id="@+id/bb10"
+        android:text="Medical Ward"
+        android:textSize="25sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bb11"
+        android:layout_below="@+id/bb10"
+        android:textSize="25sp"
+        android:text="Oncology"/>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
