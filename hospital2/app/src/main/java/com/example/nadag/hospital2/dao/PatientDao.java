@@ -2,7 +2,9 @@ package com.example.nadag.hospital2.dao;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.example.nadag.hospital2.MainActivity;
 import com.example.nadag.hospital2.util.DatabaseManager;
 
 import java.sql.SQLException;
@@ -12,9 +14,14 @@ public class PatientDao extends AsyncTask<Void,Void,Object[]>{
 
 
     DatabaseManager dbManger;
+    public int id;
 
     public PatientDao(DatabaseManager dbManger) {
         this.dbManger = dbManger;
+    }
+
+    public void setid (int ID){
+        id =ID;
     }
 
     final  String selectUserById="SELECT * FROM `test` WHERE id = ?";
@@ -23,13 +30,16 @@ public class PatientDao extends AsyncTask<Void,Void,Object[]>{
     protected Object[] doInBackground(Void... voids) {
         List<Object[]> results;
         dbManger.setQueryString(selectUserById);
-        Integer id=1;
+       // Integer id=1;
         dbManger.setParameter(0,id);
         try {
             results=dbManger.executeQuery();
             if(results.isEmpty()){
                 Log.d("hna", "didn't find this user ");
+
+
             } else{
+                System.out.println(results.get(0));
                 return results.get(0);
             }
         } catch (SQLException e) {

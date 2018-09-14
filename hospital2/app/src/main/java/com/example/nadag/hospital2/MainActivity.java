@@ -13,11 +13,14 @@ import android.widget.Toast;
 import com.example.nadag.hospital2.dao.PatientDao;
 import com.example.nadag.hospital2.util.DatabaseManager;
 
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 public class MainActivity extends AppCompatActivity {
     Button bt1;
     Button bt2;
     EditText editText;
-
+    // int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +30,19 @@ public class MainActivity extends AppCompatActivity {
         bt2=(Button) findViewById(R.id.button2);
         editText=(EditText)findViewById(R.id.edit1);
         DatabaseManager dbManger=new DatabaseManager();
-        PatientDao dao=new PatientDao(dbManger);
-        dao.execute();
+        final PatientDao dao=new PatientDao(dbManger);
+      /*  dao.execute();
+        try {
+            dao.get().toString();
+        }
+        catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        catch (ExecutionException e)
+        {
+            e.printStackTrace();
+        }*/
+      //  final PatientDao dao1=new PatientDao(dbManger);
 
        bt1.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -41,7 +55,19 @@ public class MainActivity extends AppCompatActivity {
                else
                {
                    int id = Integer.parseInt(input);
-                   selectorinsert(id);
+                   dao.setid(id);
+                   dao.execute();
+                   try {  select (dao.get());
+                   }
+                   catch (InterruptedException e){
+                       e.printStackTrace();
+                   }
+                   catch (ExecutionException e)
+                   {
+                       e.printStackTrace();
+                   }
+
+
                }
            }
        });
@@ -55,21 +81,22 @@ public class MainActivity extends AppCompatActivity {
        });
 
     }
-    public void selectorinsert (int id){
-        if (id==5)//hena el select
+    public void select ( Object[] id){
+        if (id==null)
         {
-            Intent i=new Intent(this,Deppartments.class);
-            startActivity(i);
-            finish();
-        }
-        else
-
-        { //insert code
             AlertDialog.Builder dialog=new AlertDialog.Builder(MainActivity.this);
             dialog.setTitle("Error");
             dialog.setMessage("Your Id card is not valid");
             dialog.setPositiveButton("Try again",null);
             dialog.show();
+        }
+        else
+
+        {
+            Intent i=new Intent(this,Deppartments.class);
+            startActivity(i);
+            finish();
+
         }
     }
 }

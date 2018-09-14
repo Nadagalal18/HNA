@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.nadag.hospital2.util.DatabaseManager;
+
 public class data_of_new_patient extends AppCompatActivity {
     Button bt3;
     EditText firstname,lastname,id,age,phone,email,gender;
@@ -29,6 +31,8 @@ public class data_of_new_patient extends AppCompatActivity {
         email=(EditText)findViewById(R.id.e);
         age=(EditText)findViewById(R.id.ag);
         gender=(EditText)findViewById(R.id.gend);
+        DatabaseManager dbManger=new DatabaseManager();
+        final PatientOut Out=new PatientOut(dbManger);
         bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +51,14 @@ public class data_of_new_patient extends AppCompatActivity {
                    int age =Integer.parseInt(input4);
                    int phone =Integer.parseInt(input5);
                    //insert
+                   Out.setAge(age);
+                   Out.setEmail(input6);
+                   Out.setfFirstname(input1);
+                   Out.setLastname(input2);
+                   Out.setGender(input7);
+                   Out.setid(id);
+                   Out.setPhone(phone);
+                   Out.execute();
                    dialog();
                }
             }
