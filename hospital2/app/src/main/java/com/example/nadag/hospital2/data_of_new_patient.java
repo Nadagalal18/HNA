@@ -17,12 +17,14 @@ public class data_of_new_patient extends AppCompatActivity {
     Button bt3;
     EditText firstname,lastname,id,age,phone,email,gender;
     ProgressDialog progressDialog;
+    Button btBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_of_new_patient);
-        getSupportActionBar().hide();
+      //  getSupportActionBar().hide();
+        btBack=(Button)findViewById(R.id.back);
         bt3 = (Button) findViewById(R.id.bt3);
         firstname=(EditText)findViewById(R.id.first);
         lastname=(EditText)findViewById(R.id.last);
@@ -33,6 +35,14 @@ public class data_of_new_patient extends AppCompatActivity {
         gender=(EditText)findViewById(R.id.gend);
         DatabaseManager dbManger=new DatabaseManager();
         final PatientOut Out=new PatientOut(dbManger);
+        btBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i2 = new Intent(data_of_new_patient.this, MainActivity.class);
+                startActivity(i2);
+                finish();
+            }
+        });
         bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +76,7 @@ public class data_of_new_patient extends AppCompatActivity {
     }
      public void dialog (){
          AlertDialog.Builder dialog=new AlertDialog.Builder(data_of_new_patient.this);
-         dialog.setTitle("hhh");
+         dialog.setTitle("Successfully Registered");
          dialog.setMessage("Your data is successfully saved");
          dialog.setNegativeButton("OK", new DialogInterface.OnClickListener() {
              @Override

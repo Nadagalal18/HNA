@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Departments"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:textSize="35sp"
         android:fontFamily="casual"
@@ -17,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/t"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/bb1"
         android:text="Physical Therapy"
         android:textSize="20sp"/>
@@ -43,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bb3"
-        android:id="@+id/bb5"
+        android:id="@+id/bb4"
         android:textSize="20sp"
         android:text="Pediatric"/>
 
