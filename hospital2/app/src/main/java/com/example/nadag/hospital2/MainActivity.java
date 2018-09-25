@@ -136,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
         {
 
             Intent i = new Intent(this, Deppartments.class);
-
             startActivity(i);
             finish();
         }

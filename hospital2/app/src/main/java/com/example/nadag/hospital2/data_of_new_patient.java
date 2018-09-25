@@ -53,7 +53,7 @@ public class data_of_new_patient extends AppCompatActivity {
                 String input5=phone.getText().toString();
                 String input6=email.getText().toString();
                 String input7=gender.getText().toString();
-               if (input1.isEmpty()&&input2.isEmpty()&&input3.isEmpty()&&input4.isEmpty()&&input5.isEmpty()&&input6.isEmpty()&&input7.isEmpty()) {
+               if (input1.isEmpty()&&input2.isEmpty()&&input3.isEmpty()&&input4.isEmpty()&&input5.isEmpty()&&input7.isEmpty()) {
                    Toast.makeText(data_of_new_patient.this, "Please enter your data", Toast.LENGTH_SHORT).show();
                }
                else {
