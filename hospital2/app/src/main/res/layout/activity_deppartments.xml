@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Deppartments">
+    tools:context=".Deppartments"
+    style="@style/Base.DialogWindowTitleBackground.AppCompat"
+    >
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,8 +15,8 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:textSize="35sp"
-        android:fontFamily="casual"
-        android:id="@+id/t"/>
+        android:id="@+id/t"
+        android:textColor="#0d0d0d"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +24,9 @@
         android:layout_marginTop="20dp"
         android:id="@+id/bb1"
         android:text="Physical Therapy"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:background="@drawable/border"
+        android:backgroundTint="#9c1990d1"/>
 
 
     <Button
@@ -30,7 +35,10 @@
         android:id="@+id/bb2"
         android:layout_below="@id/bb1"
         android:textSize="20sp"
-        android:text="Dental"/>
+        android:text="Dental"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#9c1990d1"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,6 +46,9 @@
         android:layout_below="@+id/bb2"
         android:textSize="20sp"
         android:text="Optical"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#9c1990d1"
         />
 
     <Button
@@ -46,7 +57,20 @@
         android:layout_below="@+id/bb3"
         android:id="@+id/bb4"
         android:textSize="20sp"
-        android:text="Pediatric"/>
+        android:text="Pediatric"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#9c1990d1"/>
 
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textSize="20sp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="560dp"
+        android:id="@+id/back"
+        android:background="@drawable/border"
+        android:backgroundTint="#9c1990d1"
+        android:textColor="#090a0a"/>
 </RelativeLayout>

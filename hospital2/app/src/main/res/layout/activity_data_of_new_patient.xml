@@ -4,46 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".data_of_new_patient">
+    tools:context=".data_of_new_patient"
+
+  >
+
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:text="Enter Your Data"
-         android:layout_marginTop="30dp"
+         android:layout_marginTop="10dp"
          android:layout_centerHorizontal="true"
          android:id="@+id/data"
-         android:textSize="25sp"
-         android:textColor="@color/colorPrimaryDark"/>
+         android:textColor="#040010"
+         android:textSize="30sp"
+         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/text3"
         android:layout_below="@id/data"
+        android:shadowColor="#f90b0b0b"
         android:id="@+id/first"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@+id/first"
+        android:layout_marginTop="10dp"
         android:textSize="20sp"
-        android:id="@+id/lastname"/>
+        />
+
     <EditText
         android:layout_width="match_parent"
+        android:textSize="20sp"
         android:layout_height="wrap_content"
         android:hint="@string/text4"
         android:layout_below="@+id/first"
         android:id="@+id/last"
+
         />
 
     <EditText
         android:layout_width="match_parent"
+        android:textSize="20sp"
         android:layout_height="wrap_content"
         android:hint="@string/text8"
         android:layout_below="@+id/last"
         android:id="@+id/i"
         />
+
 
     <EditText
         android:layout_width="match_parent"
@@ -51,6 +56,7 @@
         android:hint="Email"
         android:layout_below="@+id/i"
         android:id="@+id/e"
+        android:textSize="20sp"
         />
 
     <EditText
@@ -60,6 +66,7 @@
         android:hint="Age"
         android:id="@+id/ag"
 
+        android:textSize="20sp"
         />
 
     <EditText
@@ -68,6 +75,8 @@
         android:layout_below="@+id/ag"
         android:hint="Phone number"
         android:id="@+id/ph"
+
+        android:textSize="20sp"
         />
     <EditText
         android:layout_width="match_parent"
@@ -75,6 +84,9 @@
         android:hint="Gender"
         android:layout_below="@+id/ph"
         android:id="@+id/gend"
+        android:lineHeight="5dp"
+
+        android:textSize="20sp"
         />
     <Button
         android:layout_width="wrap_content"
@@ -85,13 +97,21 @@
         android:id="@+id/bt3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp"
+        android:background="@drawable/border"
+        android:backgroundTint="#9c1990d1"
+
+        android:textColor="#090a0a"
         />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
         android:textSize="20sp"
         android:layout_marginLeft="250dp"
-        android:layout_marginTop="560dp"
-        android:id="@+id/back"/>
+        android:layout_marginTop="590dp"
+        android:id="@+id/back"
+        android:background="@drawable/border"
+        android:backgroundTint="#9c1990d1"
+        android:textColor="#090a0a"/>
 </RelativeLayout>
