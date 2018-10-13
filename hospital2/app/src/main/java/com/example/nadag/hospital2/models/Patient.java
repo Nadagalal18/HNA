@@ -41,6 +41,7 @@ public class Patient {
         this.idCard = idCard;
     }
 
+
     public String getEmail() {
         return email;
     }

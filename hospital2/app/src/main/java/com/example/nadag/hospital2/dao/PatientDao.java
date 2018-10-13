@@ -24,7 +24,7 @@ public class PatientDao extends AsyncTask<Void, Void, Patient> {
 
             " WHERE `ID Card`=? ";
 
-    public int id;
+    public long id;
     DatabaseManager dbManger;
     private MainActivity view;
 
